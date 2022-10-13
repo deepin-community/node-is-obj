@@ -1,0 +1,21 @@
+Description: replace ava by tape
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2020-10-06
+
+--- a/test.js
++++ b/test.js
+@@ -1,5 +1,5 @@
+-import test from 'ava';
+-import isObject from '.';
++const test = require('tape');
++const isObject = require('.');
+ 
+ test('main', t => {
+ 	/* eslint-disable no-new-object */
+@@ -23,4 +23,5 @@
+ 	t.false(isObject(0));
+ 	t.false(isObject(false));
+ 	/* eslint-enable no-new-object */
++	t.end();
+ });
